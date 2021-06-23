@@ -1,43 +1,72 @@
 <?php require 'includes/header.php'?>
-<!-- this is the view, try to put only simple if's and loops here.
-Anything complex should be calculated in the model -->
 <body>
-    <!-- TEACHER RESISTER  -->
-    <div>
+<div class="container-fluid row">
+    <!-- STUDENT RESISTER  -->
+    <div class="col-lg-5 col-sm-12">
+        <h3 class="py-5 text-center">Teacher Register</h3>
+         
+        <div  class="mx-auto justify-content-center px-5">   
+            <form method="POST">
 
-        <h3 class="py-2 text-center">Teacher Register</h3>
+                <!-- Id would be automatically added -->
+                <input type="hidden" name="id" value="" class="form-control">
 
-        <div class="row mx-auto justify-content-center py-5"> 
+                <div class="form-group row">
+                    <label for="teacherName">Teacher Name</label>
+                    <input type="text" name="teacherName" value="" class="form-control">
+                </div>
+                <div class="form-group row">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" value="" class="form-control" >
+                </div>
+                <div class="form-group row">
+                    <label for="studentName">Select student</label>
+                    <select name="studentName" id="studentName" class="form-control">
+                        <?php foreach ($students->student as $student): ?>
+                            <option value="<?php echo $student->getId() ?>"> <?php echo $student->getName() ?> </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
 
-        <form method="POST">
-            <div class="form-group">
-                <label>Teacher Name</label>
-                <input type="text" name="name" value="">
-            </div>
-            <div class="form-group">
-                <label>email</label>
-                <input type="email" name="email" value="">
-            </div>
-            <div class="form-group">
-                <label>Select the student</label>
-                <select name="studentName" id="studentName">
-                    <?php foreach ($students->student as $student): ?>
-                        <option value="<?php echo $student->getId() ?>"> <?php echo $student->getName() ?> </option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <button class="btn btn-primary" type="submit" name="Register">Register</button>
-                <button class="btn btn btn-secondary" type="submit" name="Delete">Delete</button>
-            </div>
-        </form>
-
+                <div class="form-group row pt-3">
+                    <input class="btn btn-primary" type="submit" name="register" value="Register"></button>
+                </div>
+            </form>
         </div>
-
+        
     </div>
 
-    <p class="text-center"><a href="index.php">Back to homepage</a></p>
+        <!-- SHOW LIST  -->
+    <div class="col-lg-7 col-sm-12">
+        <h3 class="text-center py-5">CLASS LIST</h3>
+
+        <div class="table-responsive px-5">
+            <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Teacher Name</th>
+                    <th>Email</th>
+                    <th>Student Name</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php ?>
+
+            </tbody>
+
+
+            </table>
+        </div>
+    </div>    
+
+
+</div>
+<p class="text-center"><a href="index.php">Back to homepage</a></p> 
 
 </body>
+
+
+
 <?php require 'includes/footer.php'?>
