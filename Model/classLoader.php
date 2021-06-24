@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-class Classloader
+class ClassLoader
 {
     private array $classes;
     private $selectedClass;
@@ -24,9 +24,9 @@ class Classloader
 
     }
     // function that searches for the $_POST['className']id in the array, then returns the right object
-    public function findClassById(int $id){
+    public function findClassById(int $classId){
         foreach($this->classes as $class) {
-            if ($id == $class->getId()) {
+            if ($classId == $class->getId()) {
                 $this->selectedClass = $class;
                 return $class;
             }

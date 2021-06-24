@@ -7,15 +7,15 @@ class StudentController
     public function render()
     {
         //make new student objects from StudentLoader
-        $students= new Studentloader();
+        $students= new StudentLoader();
         $students->getStudents();
 
         //make new teacher objects from TeacherLoader
-        $teachers= new Teacherloader();
+        $teachers= new TeacherLoader();
         $teachers->getTeachers();
 
         //make new class objects from ClassLoader
-        $classes= new Classloader();
+        $classes= new ClassLoader();
         $classes->getClasses();
         
         //default values for view
@@ -26,23 +26,32 @@ class StudentController
 
         //when form submitted, get each value
         if ( !empty($_POST['studentName']) && !empty($_POST['studentEmail']) && !empty($_POST['className']) && !empty($_POST['teacherName']) ) {
-
+            // if(isset($_POST['register'] )){
             //assigning values from posts
             $studentName =$_POST['studentName'];
             $studentEmail =$_POST['studentEmail'];
-            $className =$_POST['className'];
-            $teacherName =$_POST['teacherName'];
+            $classId =intval($_POST['className']);
+            $teacherId =intval($_POST['teacherName']);
+
+            $pdo = Database::openConnection();
+
+            $statement = $pdo->prepare("INSERT INTO student(studentName,email,classId,teacherId) VALUES (:studentName,:email,:classId,:teacherId)");
+            $statement->bindValue(':studentName',$studentName);
+            $statement->bindValue(':email',$studentEmail);
+            $statement->bindValue(':classId',$classId);
+            $statement->bindValue(':teacherId',$teacherId);
+            $statement->execute();
 
             //find objects from each array
-            $teacherObj= $teachers->findTeacherById($teacherId);
             $classObj = $classes->findClassById($classId);
+            $teacherObj= $teachers->findTeacherById($teacherId);
                         
             //set view variables
-            $studentName = $studentObj->getName();
-            $studentEmail = $studentObj->getEmail();
-            $teacherName= $teacherObj->getName();
-            $className = $classObj->getName();
+            $classId = $classObj->getName();
+            $teacherId= $teacherObj->getName();
+
         }
+        $students_arr = $students->getStudentArr();
 
         //load the view
         require 'View/studentRegister.php';

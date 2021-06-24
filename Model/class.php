@@ -24,7 +24,7 @@ class SchoolClass {
         return $this->className;
     }
 
-    public function getLocation(): int
+    public function getLocation(): string
     {
         return $this->location;
     }

@@ -7,7 +7,7 @@ class TeacherController
     public function render()
     {
         //make new teacher objects from TeacherLoader
-        $teachers= new Teacherloader();
+        $teachers= new TeacherLoader();
         $teachers->getTeachers();
         
         //default values for view
@@ -26,10 +26,9 @@ class TeacherController
             $studentName =$_POST['studentName'];
 
             //find objects from each array
-            $studentObj= $students->findStudentById($studentId);
+            $studentObj= $students->findStudentById($studentName);
                         
             //set view variables 
-            $name = $teacherObj->getName();
             $teacherName= $teacherObj->getName();
             $className = $classObj->getName();
         }

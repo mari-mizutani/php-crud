@@ -1,34 +1,46 @@
 <?php
 
-//setting class for getting name and id from student, studentLoader generates objects
+//setting class for getting info from student, studentLoader generates objects
 class Student {
-    private int $id;
-    private string $name;
-    private string $email;
+    private int $studentId;
+    private string $studentName;
+    private string $studentEmail;
+    private string $teacherName;
+    private string $className;
 
 
-    public function __construct(int $id, string $name, string $email)
+    public function __construct(int $studentId, string $studentName, string $studentEmail,string $teacherName,string $className)
     {
-        $this->id= $id;
-        $this->name= $name;
-        $this->email= $email;
+        $this->studentId= $studentId;
+        $this->studentName= $studentName;
+        $this->studentEmail= $studentEmail;
+        $this->teacherName= $teacherName;
+        $this->className= $className;
     }
 
     public function getId(): int
     {
-        return $this->id;
+        return $this->studentId;
     }
 
     public function getName(): string
     {
-        return $this->name;
+        return $this->studentName;
     }
 
-    public function getEmail(): int
+    public function getEmail(): string
     {
-        return $this->email;
+        return $this->studentEmail;
     }
 
+    public function getTeacherName(): string
+    {
+        return $this->teacherName;
+    }
 
+    public function getClassName(): string
+    {
+        return $this->className;
+    }
 
 }

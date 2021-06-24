@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-class Teacherloader
+class TeacherLoader
 {
     private array $teachers;
     private $selectedTeacher;
@@ -26,12 +26,14 @@ class Teacherloader
     // function that searches for the $_POST['teacherName']id in the array, then returns the right object
     public function findTeacherById(int $teacherId){
         foreach($this->teachers as $teacher) {
-            if ($id == $teacher->getId()) {
+            if ($teacherId == $teacher->getId()) {
                 $this->selectedTeacher = $teacher;
                 return $teacher;
             }
         }
     }
+
+    
 
 
     public function getTeacherArr()

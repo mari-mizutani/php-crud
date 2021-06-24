@@ -7,15 +7,15 @@ class ClassController
     public function render()
     {
         //make new class objects from ClassLoader
-        $classes= new Classloader();
+        $classes= new ClassLoader();
         $classes->getClasses();
         
         //default values for view
         $id="";
         $name = "";
         $location = "";
-        $teacherName="";
-        $studentName="";
+        $teacherName= "";
+        $studentName= "";
 
         //when form submitted, get each value
         if ( !empty($_POST['className']) && !empty($_POST['location'])  && !empty($_POST['teacherName']) && !empty($_POST['studentName']) ) {
@@ -30,7 +30,7 @@ class ClassController
             //find objects from each array
             $classObj= $classes->findClassById($classId);
             $teacherObj= $teachers->findTeacherById($teacherId);
-            $studentObj = $studentes->findStudentById($studentId);
+            $studentObj = $students->findStudentById($studentId);
                         
             //set view variables 
             $name = $classObj->getName();
