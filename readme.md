@@ -54,26 +54,26 @@ On the detailed overview you have to provide the following information:
 all function tested only on student page
 
 #### Database
-[x] See what tables and columns we need
-[x] Add Dummy DATABASE
+- [x] See what tables and columns we need
+- [x] Add Dummy DATABASE
 
 #### Create
-[x] Check the data types
-[x] Check for empty fields
-[x] If checks are met, do a request and create post
-[x] Created post on database
+- [x] Check the data types
+- [x] Check for empty fields
+- [x] If checks are met, do a request and create post
+- [x] Created post on database
 
 #### Read
-[x] Read data from database
+- [x] Read data from database
 
 #### Update
-[x] Same as create, but we need values on the post
-[x] Check if values are not the same or empty
-[ ] Check if update button works correctly  *just create new post now. must fix it
+- [x] Same as create, but we need values on the post
+- [x] Check if values are not the same or empty
+- [ ] Check if update button works correctly  *just create new post now. must fix it
 
 #### Delete
-[x] Delete button that does a database request
-[x] Check if the user id is equal to the user id of post creation
+- [x] Delete button that does a database request
+- [x] Check if the user id is equal to the user id of post creation
 
 
- ![screenshot of the page](BeCodeSchool.png)
+ ![screenshot of the page](BecodeSchool.png)
