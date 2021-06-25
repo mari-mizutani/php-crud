@@ -6,13 +6,14 @@
         <h3 class="py-5 text-center">Student Register</h3>
         <div  class="mx-auto justify-content-center px-5">   
             <form method="POST">
+                <input type="hidden" name="studentId" value="<?php echo $studentId ?>">
                 <div class="form-group row">
                     <label for="studentName">Student Name</label>
-                    <input type="text" name="studentName" value="" class="form-control">
+                    <input type="text" name="studentName" value="<?php echo $studentName ?>" class="form-control">
                 </div>
                 <div class="form-group row">
                     <label for="studentEmail">Email</label>
-                    <input type="email" name="studentEmail" value="" class="form-control" >
+                    <input type="email" name="studentEmail" value="<?php echo $studentEmail ?>" class="form-control" >
                 </div>
                 <div class="form-group row">
                     <label for="teacherName">Select teacher</label>
@@ -34,7 +35,11 @@
                     </select>
                 </div>
                 <div class="form-group row pt-3">
+                <?php if($update == true):?>
+                    <input class="btn btn-info" type="submit" name="update" value="Update"></button>
+                <?php else: ?>    
                     <input class="btn btn-primary" type="submit" name="register" value="Register"></button>
+                <?php endif;?>    
                 </div>
             </form>
         </div>
@@ -50,8 +55,8 @@
                     <tr>
                         <th>Student Name</th>
                         <th>Email</th>
-                        <th>Class Name</th>
                         <th>Teacher Name</th>
+                        <th>Class Name</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -64,8 +69,12 @@
                         <td><?php echo $student_info->getTeacherName() ?></td>
                         <td><?php echo $student_info->getClassName() ?></td>
                         <td>
-                            <button type="button" class="btn btn-outline-primary btn-sm">Edit</button>
-                            <button type="button" class="btn btn-outline-danger btn-sm">Delete</button>
+                        <form style="display:inline-block;" method="post">
+                            <button type="submit" name="edit" class="btn btn-outline-primary btn-sm" value="<?php echo $student_info->getId(); ?>">Edit</button>
+                        </form>
+                        <form style="display:inline-block;" method="post">
+                            <button type="submit" name="delete" class="btn btn-outline-danger btn-sm" value="<?php echo $student_info->getId(); ?>">Delete</button>
+                        </form>
                         </td>
                     </tr>
                     <?php endforeach;?>

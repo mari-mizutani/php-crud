@@ -3,12 +3,12 @@ declare(strict_types=1);
 
 //include all your model files here
 require 'Model/database.php';
-require 'Model/student.php';
-require 'Model/studentLoader.php';
-require 'Model/teacher.php';
-require 'Model/teacherLoader.php';
-require 'Model/class.php';
-require 'Model/classLoader.php';
+require 'Model/student/student.php';
+require 'Model/student/studentLoader.php';
+require 'Model/teacher/teacher.php';
+require 'Model/teacher/teacherLoader.php';
+require 'Model/class/class.php';
+require 'Model/class/classLoader.php';
 //include all your controllers here
 require 'Controller/HomepageController.php';
 require 'Controller/StudentController.php';

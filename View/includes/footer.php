@@ -1,4 +1,4 @@
-    <footer class="text-center fixed-bottom py-5">
+    <footer class="text-center py-5">
         &copy; BeCode <?php echo date('Y')?>
     </footer>
 </body>
