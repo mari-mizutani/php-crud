@@ -1,10 +1,5 @@
 # Title: Create, Read, Update, Delete   
-
-- Repository: `php-crud`
-- Type of Challenge: `Learning Challenge`
-- Duration: `3 days`
-- Deployment strategy : `NA`
-- Team challenge : `team of 3`
+- BeCode learning challenge
 
 ## Learning objectives
 - To be able to connect to a database
@@ -18,15 +13,6 @@ You do not need to provide any login for this script, everybody can change and v
 You will use the MVC structure provided in the [PHP MVC Boilerplate](https://github.com/becodeorg/php-mvc-boilerplate) repo provided by your coach, to help you on your way!
 
 In this assigment you will end up with at least 3 models and 3 controllers, but you could end up with more. Model the software how you want it!
-
-### What is CRUD?
-When we are building web applications, we want our models to provide four basic types of functionality. Most models will have to be able to Create, Read, Update, and Delete. This is often abbreviated as CRUD.
-
-While is an old style of approaching applications, with new ways of thinking (Domain Driven Design, Event Driven Design) that are more flow based - CRUD is still a large portion of all the programs developed today.
-
-### Tips
-- You will see that the Teacher and Student entity are really similar - maybe you can use `Extend` here as an OOP technique?
-- Create and Update are very similar in how they behave, with some smart coding techniques you could use almost the same code for both pages.
 
 ## Must-have features
 You have to provide the following pages for Students, Teacher & Class.
@@ -63,7 +49,31 @@ On the detailed overview you have to provide the following information:
 - Assigned teacher (clickable link)
 - List of assigned students (clickable link)
 
-## Nice to have features
-- Add a search bar at the top of each page to search for the names of teachers or students
-- Make an address entity. An address can be assigned to a student or teacher (where he lives) or to a class (where are the lessons given).
-- Add [Basic HTTP Authentication](https://www.lifewire.com/password-protect-single-file-with-htaccess-3467922) with a `.htaccess` file.
+
+## Current progress (2021.06.25)
+all function tested only on student page
+
+#### Database
+[x] See what tables and columns we need
+[x] Add Dummy DATABASE
+
+#### Create
+[x] Check the data types
+[x] Check for empty fields
+[x] If checks are met, do a request and create post
+[x] Created post on database
+
+#### Read
+[x] Read data from database
+
+#### Update
+[x] Same as create, but we need values on the post
+[x] Check if values are not the same or empty
+[ ] Check if update button works correctly  *just create new post now. must fix it
+
+#### Delete
+[x] Delete button that does a database request
+[x] Check if the user id is equal to the user id of post creation
+
+
+ ![screenshot of the page](BeCodeSchool.png)
